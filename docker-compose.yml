@@ -7,4 +7,18 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-      - "11434:11434"
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+        - 11434:11434
+    volumes:
+        - ./ollama/ollama:/root/.ollama
+        - ./entrypoint.sh:/entrypoint.sh
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: always
+    entrypoint: ["/entrypoint.sh"]

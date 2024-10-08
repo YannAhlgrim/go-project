@@ -1,0 +1,12 @@
+# Dockerfile for ollama service
+
+FROM ollama/ollama:latest
+
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Make sure the entrypoint script is executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint to the script
+# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

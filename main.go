@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	llm, err := ollama.New(ollama.WithModel("llama2"))
+	fmt.Println("Hello, World!")
+	llm, err := ollama.New(ollama.WithModel("llama3"), ollama.WithServerURL("http://ollama:11434"))
 	if err != nil {
 		log.Fatal(err)
 	}
